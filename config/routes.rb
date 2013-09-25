@@ -1,4 +1,14 @@
 Sansaku::Application.routes.draw do
+  resources :way_points
+
+  resources :checkins
+
+  resources :my_maps
+
+  resources :place_images
+
+  resources :locations
+
   resources :places
 
   resources :initials

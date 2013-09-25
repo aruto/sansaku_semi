@@ -3,11 +3,11 @@
 種類　◎
 初期位置 ◎
 場所 ◎
-現在位置 
-場所画像 
-マイマップ 
-チェックイン 
-経由地 
+現在位置 ○
+場所画像 ○
+マイマップ ○
+チェックイン ○
+経由地 ○
 
 
 
@@ -27,3 +27,8 @@ rails g scaffold category で categories を作成
 rails g scaffold type で types を作成
 rails g scaffold initial で initials を作成
 rails g scaffold place で places を作成
+rails g scaffold location で locations を作成
+rails g scaffold place_image で place_images を作成
+rails g scaffold my_map で my_maps を作成
+rails g scaffold checkin で checkins を作成
+rails g scaffold way_point で way_points を作成
