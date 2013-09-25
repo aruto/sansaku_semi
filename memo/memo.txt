@@ -19,3 +19,4 @@ SouceTree
 コミット
 
 github
+Repository nameは「sansaku_semi」
