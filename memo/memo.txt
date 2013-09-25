@@ -12,3 +12,10 @@
 
 
 rails new sansaku
+
+SouceTree
+「Create New Repository」で「sansaku」を指定。「create」。
+登録確認
+コミット
+
+github
