@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925064949) do
+ActiveRecord::Schema.define(version: 20130925073840) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "checkins", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "checkins", ["member_id"], name: "index_checkins_on_member_id"
+  add_index "checkins", ["place_id"], name: "index_checkins_on_place_id"
 
   create_table "initials", force: true do |t|
     t.float    "lat"
@@ -27,10 +37,41 @@ ActiveRecord::Schema.define(version: 20130925064949) do
     t.datetime "updated_at"
   end
 
+  create_table "locations", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "altitude"
+    t.float    "accuracy"
+    t.float    "altitude_accuracy"
+    t.float    "heading"
+    t.float    "speed"
+    t.integer  "error_code"
+    t.datetime "timestamp"
+    t.integer  "member"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "members", force: true do |t|
     t.string   "user"
     t.string   "hashed_password"
     t.boolean  "administrator"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "my_maps", force: true do |t|
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "my_maps", ["member_id"], name: "index_my_maps_on_member_id"
+
+  create_table "place_images", force: true do |t|
+    t.integer  "place_id"
+    t.binary   "data"
+    t.string   "content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,5 +95,15 @@ ActiveRecord::Schema.define(version: 20130925064949) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "way_points", force: true do |t|
+    t.integer  "place_id"
+    t.integer  "my_map_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "way_points", ["my_map_id"], name: "index_way_points_on_my_map_id"
+  add_index "way_points", ["place_id"], name: "index_way_points_on_place_id"
 
 end

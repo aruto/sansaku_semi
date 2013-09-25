@@ -69,6 +69,6 @@ class PlaceImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_image_params
-      params.require(:place_image).permit(:place, :data, :content_type)
+      params.require(:place_image).permit(:place_id, :data, :content_type)
     end
 end
