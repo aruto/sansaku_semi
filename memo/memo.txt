@@ -1,13 +1,13 @@
-メンバー
-カテゴリー
-種類
-初期位置
-場所
-現在位置
-場所画像
-マイマップ
-チェックイン
-経由地
+メンバー　◎
+カテゴリー　◎
+種類　◎
+初期位置 ◎
+場所 ◎
+現在位置 
+場所画像 
+マイマップ 
+チェックイン 
+経由地 
 
 
 
@@ -20,3 +20,10 @@ SouceTree
 
 github
 Repository nameは「sansaku_semi」
+
+Ruby on Rails
+rails generate scaffold member で members を作成
+rails g scaffold category で categories を作成
+rails g scaffold type で types を作成
+rails g scaffold initial で initials を作成
+rails g scaffold place で places を作成
