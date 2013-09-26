@@ -32,3 +32,34 @@ rails g scaffold place_image で place_images を作成
 rails g scaffold my_map で my_maps を作成
 rails g scaffold checkin で checkins を作成
 rails g scaffold way_point で way_points を作成
+テスト終了
+
+●データベースの設定（関係性の設定）
+sansaku/app/models で各テーブルのidの関係性を設定
+例1）カテゴリー(1)　－　(n)場所
+   　　id          ←  カテゴリーid
+
+	カテゴリー
+	has_many 場所（複数形）
+
+	場所
+	belongs_to カテゴリー（単数形）
+
+例2）場所(1)　－　(1)場所画像
+       id　　 ←　　　場所id
+
+	場所
+	has_one 場所画像（単数形）
+
+	場所画像
+	belongs_to 場所（単数形）
+
+・カテゴリー(id)と場所(カテゴリーid) 1:n
+・種類(id)と場所(種類id) 1:1
+・場所(id)と場所画像(場所id) 1:1
+・場所(id)と経由地(場所id) 1:n
+・場所(id)とチェックイン(場所id) 1:n
+・メンバー(id)と現在位置(メンバーid) 1:n
+・メンバー(id)とチェックイン(メンバーid) 1:n
+・メンバー(id)とマイマップ(メンバーid) 1:n
+・マイマップ(id)と経由地(マイマップid) 1:n
