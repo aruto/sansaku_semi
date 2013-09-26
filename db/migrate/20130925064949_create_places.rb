@@ -6,7 +6,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.float :lat
       t.float :lng
       t.text :description
-      t.integer :type
+      t.references :type, index:true
 
       t.timestamps
     end

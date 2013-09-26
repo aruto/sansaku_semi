@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
   has_many :locations
   has_many :checkins
-  has_many :my_maps
+  has_one :my_map
 end

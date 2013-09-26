@@ -10,7 +10,7 @@ class CreateLocations < ActiveRecord::Migration
       t.float :speed
       t.integer :error_code
       t.datetime :timestamp
-      t.integer :member
+      t.references :member, index:true
 
       t.timestamps
     end

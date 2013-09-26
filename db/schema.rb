@@ -82,12 +82,13 @@ ActiveRecord::Schema.define(version: 20130925073840) do
     t.float    "lat"
     t.float    "lng"
     t.text     "description"
-    t.integer  "type"
+    t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "places", ["category_id"], name: "index_places_on_category_id"
+  add_index "places", ["type_id"], name: "index_places_on_type_id"
 
   create_table "types", force: true do |t|
     t.string   "name"
