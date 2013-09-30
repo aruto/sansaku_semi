@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Member.create(user: "青森太郎", hashed_password: "aomori", administrator: true)
-Member.create(user: "黒石一郎", hashed_password: "aomori", administrator: false)
-Member.create(user: "佐藤正太", hashed_password: "aomori", administrator: false)
-Member.create(user: "鈴木浩紀", hashed_password: "aomori", administrator: false)
-Member.create(user: "斎藤輝雄", hashed_password: "aomori", administrator: false)
+Member.create(user: "青森太郎", password: "aomori", password_confirmation: "aomori", administrator: true)
+Member.create(user: "黒石一郎", password: "aomori", password_confirmation: "aomori", administrator: false)
+Member.create(user: "佐藤正太", password: "aomori", password_confirmation: "aomori", administrator: false)
+Member.create(user: "鈴木浩紀", password: "aomori", password_confirmation: "aomori", administrator: false)
+Member.create(user: "斎藤輝雄", password: "aomori", password_confirmation: "aomori", administrator: false)
 
 Category.create(name: "東地区")
 Category.create(name: "西地区")
