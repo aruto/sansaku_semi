@@ -1,4 +1,7 @@
 Sansaku::Application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   resources :way_points
 
   resources :checkins
