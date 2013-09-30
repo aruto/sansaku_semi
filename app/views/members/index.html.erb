@@ -1,10 +1,13 @@
 <h1>Listing members</h1>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <table>
   <thead>
     <tr>
       <th>User</th>
-      <th>Hashed password</th>
+      <th>Password digest</th>
       <th>Administrator</th>
       <th></th>
       <th></th>
@@ -16,7 +19,7 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.user %></td>
-        <td><%= member.hashed_password %></td>
+        <td><%= member.password_digest %></td>
         <td><%= member.administrator %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
