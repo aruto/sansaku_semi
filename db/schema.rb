@@ -47,10 +47,12 @@ ActiveRecord::Schema.define(version: 20130925073840) do
     t.float    "speed"
     t.integer  "error_code"
     t.datetime "timestamp"
-    t.integer  "member"
+    t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "locations", ["member_id"], name: "index_locations_on_member_id"
 
   create_table "members", force: true do |t|
     t.string   "user"
