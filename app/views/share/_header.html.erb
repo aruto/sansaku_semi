@@ -1,0 +1,7 @@
+<% if @current_member %>
+<div id="member">
+ユーザー: <%= @current_member.user %>
+<br>
+<%= button_to 'ログアウト', logout_path, method: :delete %>
+</div>
+<% end %>
