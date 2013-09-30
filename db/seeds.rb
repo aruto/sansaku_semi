@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 Member.create(user: "青森太郎", hashed_password: "aomori", administrator: true)
 Member.create(user: "黒石一郎", hashed_password: "aomori", administrator: false)
 Member.create(user: "佐藤正太", hashed_password: "aomori", administrator: false)
@@ -45,12 +44,11 @@ WayPoint.create(place_id: 2, my_map_id:1)
 WayPoint.create(place_id: 3, my_map_id:1)
 
 1.upto(4) do |idx|
-	PlaceImage.create(
-		{
-			place_id: idx,
-			data: File.open(Rails.root.join("db/place_images/#{idx}.JPG"),"rb").read,
-			content_type: "image/jpeg"
-		},
-		without_protection: true
-	)
+  PlaceImage.create(
+    {
+      place_id: idx,
+      data: File.open(Rails.root.join("db/place_images/#{idx}.jpg"), "rb").read,
+      content_type: "image/jpeg"
+    }
+  )
 end
