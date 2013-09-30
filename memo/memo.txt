@@ -68,3 +68,5 @@ sansaku/app/models で各テーブルのidの関係性を設定
 
 sansaku/db/seed でテスト用にデータを作成
 PlaceImageは一旦置いておく
+
+PlaceImageをテスト用で作成
