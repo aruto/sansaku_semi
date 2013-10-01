@@ -1,4 +1,6 @@
 Sansaku::Application.routes.draw do
+  get "home/index"
+
   controller :sessions do
     get    'login'  => :new
     post   'login'  => :create
@@ -29,7 +31,7 @@ Sansaku::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'places#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
