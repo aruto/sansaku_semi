@@ -72,3 +72,5 @@ PlaceImageは一旦置いておく
 PlaceImageをテスト用で作成
 
 seedのテストは完了
+
+トップの作成（コントローラー：home　ビュー：index）

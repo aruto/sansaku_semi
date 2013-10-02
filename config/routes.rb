@@ -1,4 +1,5 @@
 Sansaku::Application.routes.draw do
+  get "map/index"
   get "home/index"
 
   controller :sessions do
