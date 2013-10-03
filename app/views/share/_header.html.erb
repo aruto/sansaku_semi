@@ -1,7 +1,13 @@
+<div data-role="header">
+	<h1>青森市</h1>
+	<h1>グルメマップ</h1>
+</div>
+
 <% if @current_member %>
 <div id="member">
 ユーザー: <%= @current_member.user %>
 <br>
 <%= button_to 'ログアウト', logout_path, method: :delete %>
 </div>
+
 <% end %>

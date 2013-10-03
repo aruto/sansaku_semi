@@ -1,25 +1,5 @@
-<div data-role="page">
-	<div data-role="header">
-		<h1>青森市</h1>
-		<h1>グルメマップ</h1>
-	</div>
+<p>このアプリでは青森市の中心市街地のお勧めのグルメを紹介します。</p>
 
-		<p>このアプリでは青森市の中心市街地のお勧めのグルメを紹介します。</p>
+	<%= link_to "ジャンルから探す", :categories, data: {role: :button} %>
 
-	<div data-role="content">
-		<% if @current_member %>
-			<div id="member">
-			ユーザー: <%= @current_member.user %>
-			<br>
-			<%= button_to 'ログアウト', logout_path, method: :delete %>
-			</div>
-		<% end %>
-		
 
-		<%= link_to "ジャンルから探す", :categories, data: {role: :button} %>
-
-	</div>
-	<div data-role="footer">
-		<h4>青森大学2013年大学祭</h4>
-	</div>
-</div>
