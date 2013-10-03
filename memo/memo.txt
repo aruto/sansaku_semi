@@ -76,3 +76,14 @@ seedのテストは完了
 トップの作成（コントローラー：home　ビュー：index）
 
 マップの作成（コントローラー：map　ビュー：index）
+
+
+●特殊な構造のhtml.erb
+・app\views\layouts\application.html.erb
+全てのページで共通の処理をしたい時、ここに書き込む事で全てに反映される。
+
+・app\views\share_footer.html.erb
+全てのページのフッターに共通の処理をする
+
+・app\views\share\_header.html.erb
+全てのページのヘッダーに共通の処理をする
