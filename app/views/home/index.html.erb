@@ -1,8 +1,11 @@
 <div data-role="page">
 	<div data-role="header">
-		<h1>青森大学</h1>
-		<h1>大学祭マップ</h1>
+		<h1>青森市</h1>
+		<h1>グルメマップ</h1>
 	</div>
+
+		<p>このアプリでは青森市の中心市街地のお勧めのグルメを紹介します。</p>
+
 	<div data-role="content">
 		<% if @current_member %>
 			<div id="member">
@@ -12,10 +15,8 @@
 			</div>
 		<% end %>
 		
-		<p>ようこそ</p>
 
 		<%= link_to "ジャンルから探す", :categories, data: {role: :button} %>
-		
 
 	</div>
 	<div data-role="footer">

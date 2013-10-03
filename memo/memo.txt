@@ -74,3 +74,5 @@ PlaceImageをテスト用で作成
 seedのテストは完了
 
 トップの作成（コントローラー：home　ビュー：index）
+
+マップの作成（コントローラー：map　ビュー：index）
