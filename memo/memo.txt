@@ -87,3 +87,20 @@ seedのテストは完了
 
 ・app\views\share\_header.html.erb
 全てのページのヘッダーに共通の処理をする
+
+10/4
+ページが初期化される前にGoogleMapの初期化を行う必要があり、ページごとにidを振っておく必要が有る。
+ページにidが振られていない。
+application.html.erbに書き込むことでidを降ることができる。
+しかし、直接idを書くと全てのページで同じidが振られてしまう。
+そこで、ページごとに異なるidを設定する方法がある。
+しかし、難しい。
+そこで、マップのページだけ専用のレイアウトファイルを用意。
+その為、　app\views\layoutsmap.html.erb　を用意。
+この中にGoogle Maps APIの読み込み、Google Maps APIを利用したプログラム、マップ表示領域のスタイルシートを記述。
+map_controllerの中で、このレイアウトファイルを使用するように設定。
+
+※Google Maps APIをJquery mobileの中で使用するプログラムのメインプログラムはmap.html.erbは
+	$(document).on('pageshow', '#map-page',function () {
+	});
+	の中に書く。（#map-pageの部分はマップのページに指定したidである。）
