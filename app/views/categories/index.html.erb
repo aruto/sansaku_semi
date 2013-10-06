@@ -1,22 +1,14 @@
-<h1>Listing categories</h1>
+<h1>種類一覧</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to category.name, category, data: {role: :button} %></td>
+<!--        <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
