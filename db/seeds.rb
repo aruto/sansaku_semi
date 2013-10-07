@@ -27,10 +27,15 @@ Type.create(name: "お菓子",   icon: "sweets.png")
 
 Initial.create(lat: 40.645427, lng: 140.59678, zoom: 16)
 
-Place.create(name: "黒石温泉",		 category_id: 4, lat: 40.646331, lng: 140.597029, description: "地元民に愛されている温泉です。", type_id: 2)
-Place.create(name: "つゆ焼きそば屋", category_id: 1, lat: 40.645317, lng: 140.598751, description: "創業100年の店。", type_id: 1)
-Place.create(name: "黒石ホテル",	 category_id: 3, lat: 40.64456,  lng: 140.59646,  description: "一度は泊まる価値のあるホテル。", type_id: 3)
-Place.create(name: "民宿",			 category_id: 2, lat: 40.645472, lng: 140.595468, description: "ただの民宿。", type_id: 3)
+Place.create(name: "喫茶　しもん",		 　　　category_id: 1, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "とろあーすーる",   　　　　　category_id: 1, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "新世界",	     　　　　　　　　category_id: 2, lat: ,  lng: ,  description: "", type_id: 1)
+Place.create(name: "五代目カネシメ蕎麦処柿崎",	　category_id: 3, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "旬香",			 　　　　　category_id: 4, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "カプリチョーザ",			 category_id: 5, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "グラナダ",			 　　　category_id: 6, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "TONY ROMA’S",			 category_id: 7, lat: , lng: , description: "", type_id: 1)
+Place.create(name: "マルコポーロ",			 category_id: 8, lat: , lng: , description: "", type_id: 1)
 
 Location.create(latitude: 40.645352, longitude: 140.596718, 			  accuracy: 50,timestamp: "2013-09-26 18:00:01", member_id: 5)
 Location.create(latitude: 40.646518, longitude: 140.595709, altitude: 60, accuracy: 10,heading: 240.478952 ,timestamp: "2013-08-20 23:59:59", member_id: 3)
@@ -47,7 +52,7 @@ Checkin.create(member_id: 5, place_id:1)
 WayPoint.create(place_id: 2, my_map_id:1)
 WayPoint.create(place_id: 3, my_map_id:1)
 
-1.upto(4) do |idx|
+1.upto(9) do |idx|
   PlaceImage.create(
     {
       place_id: idx,
