@@ -11,10 +11,14 @@ Member.create(user: "佐藤正太", password: "aomori", password_confirmation: "
 Member.create(user: "鈴木浩紀", password: "aomori", password_confirmation: "aomori", administrator: false)
 Member.create(user: "斎藤輝雄", password: "aomori", password_confirmation: "aomori", administrator: false)
 
-Category.create(name: "東地区")
-Category.create(name: "西地区")
-Category.create(name: "南地区")
-Category.create(name: "北地区")
+Category.create(name: "喫茶")
+Category.create(name: "焼き肉")
+Category.create(name: "そば")
+Category.create(name: "和食")
+Category.create(name: "イタリアン")
+Category.create(name: "スペイン料理")
+Category.create(name: "アメリカ料理")
+Category.create(name: "地中海料理")
 
 Type.create(name: "お食事処", icon: "restaurant.png")
 Type.create(name: "温泉", 	  icon: "spa.png")
