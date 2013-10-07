@@ -5,6 +5,14 @@
   <%= @category.name %>
 </p>
 
+<% if @places.count > 0 %>
+<ul data-role="listview" data-inset="true">
+  <% @places.each do |place| %>
+  <li><%= link_to place.name, place %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <!--
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
