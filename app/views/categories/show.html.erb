@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>ジャンル:</strong>
-  <%= @category.name %>
-</p>
+<h2>
+  <%= @category.name %>の店一覧
+</h2>
 
 <% if @places.present? %>
 <ul data-role="listview" data-inset="true">
