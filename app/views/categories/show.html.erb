@@ -5,7 +5,7 @@
   <%= @category.name %>
 </p>
 
-<% if @places.count > 0 %>
+<% if @places.present? %>
 <ul data-role="listview" data-inset="true">
   <% @places.each do |place| %>
   <li><%= link_to place.name, place %></li>
