@@ -104,3 +104,10 @@ map_controllerの中で、このレイアウトファイルを使用するよう
 	$(document).on('pageshow', '#map-page',function () {
 	});
 	の中に書く。（#map-pageの部分はマップのページに指定したidである。）
+
+10/7
+categories#show の中身を書き込み
+
+10/8
+show.html.erb のプログラムを「データがあれば表示」に変更
+全画面に出てくるユーザー名とログアウトボタンを非表示に
