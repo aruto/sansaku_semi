@@ -10,6 +10,11 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+  	if params[:format].in?(["jpg", "png", "gif"])
+  		send_image
+  	else
+  		render "places/show"
+  	end
   end
 
   # GET /places/new
@@ -70,5 +75,14 @@ class PlacesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
       params.require(:place).permit(:name, :category_id, :lat, :lng, :description, :type)
+    end
+    
+    #‰æ‘œ‘—M
+    def send_image
+    	if @place.image.present?
+    		send_data @place.image.data, type: @place.image.content_type, disposition: "inline"
+    	else
+    		raise NotFound
+    	end
     end
 end
