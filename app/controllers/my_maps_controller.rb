@@ -4,9 +4,7 @@ class MyMapsController < ApplicationController
   # GET /my_maps
   # GET /my_maps.json
   def index
-    member_id = @current_member.id
-    my_map = MyMap.find_by(member_id: member_id)
-    @way_points = WayPoint.where(my_map_id: my_map.id)
+    @way_points = @current_member.my_map.way_points
   end
 
   # GET /my_maps/1
