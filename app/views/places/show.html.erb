@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
+  <!--	<strong>Name:</strong>	-->
   <%= @place.name %>
-</p>
+</h2>
 
-<p>
+<p><%= place_image_tag @place, width: "300" %></p>
+
+<!--	<p>
   <strong>Category:</strong>
   <%= @place.category %>
-</p>
+</p>	-->
 
-<p>
+<!--	<p>
   <strong>Lat:</strong>
   <%= @place.lat %>
-</p>
+</p>	-->
 
-<p>
+<!--	<p>
   <strong>Lng:</strong>
   <%= @place.lng %>
-</p>
+</p>	-->
 
 <p>
-  <strong>Description:</strong>
+<!--  <strong>Description:</strong>	-->
   <%= @place.description %>
 </p>
 
-<p>
+<!--	<p>
   <strong>Type:</strong>
   <%= @place.type %>
-</p>
+</p>	-->
 
+<!--
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
+-->
