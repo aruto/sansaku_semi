@@ -3,7 +3,7 @@
 <% if @way_points.present? %>
 <ul data-role="listview" data-inset="true">
   <% @way_points.each do |way_point| %>
-  <li><%= link_to way_point.place.name, way_point %></li>
+  <li><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
   <% end %>
 </ul>
 <% end %>
