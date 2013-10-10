@@ -27,10 +27,9 @@ class WayPointsController < ApplicationController
   # POST /way_points.json
   def create
     @way_point = WayPoint.new(way_point_params)
-
     respond_to do |format|
       if @way_point.save
-        format.html { redirect_to @way_point, notice: 'Way point was successfully created.' }
+        format.html { redirect_to my_maps_path, notice: 'Way point was successfully created.' }
         format.json { render action: 'show', status: :created, location: @way_point }
       else
         format.html { render action: 'new' }

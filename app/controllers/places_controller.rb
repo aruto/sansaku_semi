@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
   def show	
   	@way_point = WayPoint.new
   	@way_point.place_id = params[:id]
-  	@way_point.my_map_id = params[:my_map_id]
+  	@way_point.my_map = @current_member.my_map
   	
   	if params[:format].in?(["jpg", "png", "gif"])
   		send_image
