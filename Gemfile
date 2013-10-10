@@ -9,7 +9,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   # テストなどにRSpecを使用
-  # gem 'rspec-rails'
+  gem 'rspec-rails'
 end
 
 group :production do
