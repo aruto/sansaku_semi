@@ -5,6 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+WayPoint.delete_all
+Checkin.delete_all
+MyMap.delete_all
+Place.delete_all
+Initial.delete_all
+Type.delete_all
+Category.delete_all
+Member.delete_all
+
 Member.create(user: "青森太郎", password: "aomori", password_confirmation: "aomori", administrator: true)
 Member.create(user: "黒石一郎", password: "aomori", password_confirmation: "aomori", administrator: false)
 Member.create(user: "佐藤正太", password: "aomori", password_confirmation: "aomori", administrator: false)
