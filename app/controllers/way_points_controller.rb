@@ -1,6 +1,8 @@
 class WayPointsController < ApplicationController
   before_action :set_way_point, only: [:show, :edit, :update, :destroy]
 
+	skip_before_filter :verify_authenticity_token
+
   # GET /way_points
   # GET /way_points.json
   def index

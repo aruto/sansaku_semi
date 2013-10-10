@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+﻿source 'https://rubygems.org'
 
 ruby '2.0.0'
 
@@ -7,9 +7,9 @@ gem 'rails', '4.0.0'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3'
   # テストなどにRSpecを使用
-  gem 'rspec-rails'
+  # gem 'rspec-rails'
 end
 
 group :production do
