@@ -11,14 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :place %><br>
-    <%= f.text_field :place %>
-  </div>
-  <div class="field">
-    <%= f.label :my_map %><br>
-    <%= f.text_field :my_map %>
-  </div>
+    <%= f.hidden_field :place_id %>
+    <%= f.hidden_field :my_map_id %>
   <div class="actions">
     <%= f.submit %>
   </div>

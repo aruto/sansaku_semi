@@ -9,7 +9,11 @@ class PlacesController < ApplicationController
 
   # GET /places/1
   # GET /places/1.json
-  def show
+  def show	
+  	@way_point = WayPoint.new
+  	@way_point.place_id = params[:id]
+  	@way_point.my_map = @current_member.my_map
+  	
   	if params[:format].in?(["jpg", "png", "gif"])
   		send_image
   	else
