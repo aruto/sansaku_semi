@@ -23,8 +23,8 @@ var MAPRAMBLE = {};
 // マップの初期中心位置
 MAPRAMBLE.initial = {
   zoom: 12,
-  latitude: 40.803805,
-  longitude: 140.760929
+  lat: 40.803805,
+  lng: 140.760929
 };
 
 // マップを初期化
@@ -45,7 +45,7 @@ MAPRAMBLE.createMap = function () {
   var centerLatLng, options;
 
   // 最初に中心に初石駅を表示させる
-  centerLatLng = new google.maps.LatLng(MAPRAMBLE.initial.latitude, MAPRAMBLE.initial.longitude);
+  centerLatLng = new google.maps.LatLng(MAPRAMBLE.initial.lat, MAPRAMBLE.initial.lng);
 
   options = {
     zoom: this.initial.zoom, // 拡大率
@@ -77,9 +77,9 @@ MAPRAMBLE.addMarker = function (place) {
   'use strict';
   var marker, options;
 
-  if (place.hasOwnProperty('latitude') && place.hasOwnProperty('longitude') && place.latitude !== null && place.longitude !== null) {
+  if (place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
     options = {
-        position: new google.maps.LatLng(place.latitude, place.longitude),
+        position: new google.maps.LatLng(place.lat, place.lng),
         map: MAPRAMBLE.map,
         icon: "http://maps.google.com/mapfiles/marker.png"
     };
