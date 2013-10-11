@@ -5,6 +5,7 @@ class MyMapsController < ApplicationController
   # GET /my_maps.json
   def index
     @way_points = @current_member.my_map.way_points
+		@my_map = @current_member.my_map
   end
 
   # GET /my_maps/1
@@ -54,7 +55,13 @@ class MyMapsController < ApplicationController
   # DELETE /my_maps/1
   # DELETE /my_maps/1.json
   def destroy
-    @my_map.destroy
+
+  	@way_points = @current_member.my_map.way_points
+
+    @way_points.each do |way_point|
+    	way_point.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to my_maps_url }
       format.json { head :no_content }
