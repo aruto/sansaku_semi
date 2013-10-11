@@ -14,7 +14,7 @@ Type.delete_all
 Category.delete_all
 Member.delete_all
 
-Member.create(user: "青森太郎", password: "aomori", password_confirmation: "aomori", administrator: true)
+Member.create(user: "aomori", password: "aomori", password_confirmation: "aomori", administrator: true)
 Member.create(user: "黒石一郎", password: "aomori", password_confirmation: "aomori", administrator: false)
 Member.create(user: "佐藤正太", password: "aomori", password_confirmation: "aomori", administrator: false)
 Member.create(user: "鈴木浩紀", password: "aomori", password_confirmation: "aomori", administrator: false)

@@ -14,7 +14,7 @@
 
   <script src="http://maps.google.com/maps/api/js?sensor=true&language=ja"></script>
 
-<script>
+  <script>
 /*global google, jQuery, console */
 /*jslint browser:true */
 
@@ -32,7 +32,7 @@ MAPRAMBLE.initialize = function () {
   'use strict';
   // 表示領域の計算
   var viewportHeight = window.innerHeight ? window.innerHeight : jQuery(window).height();
-  var mapHeight = viewportHeight - 20;
+  var mapHeight = viewportHeight;
   jQuery('#map').css('height', mapHeight);
 
   // Google Mapsの初期化
@@ -89,6 +89,8 @@ MAPRAMBLE.addMarker = function (place) {
   }
 };
 
+
+
 // メインプログラム
 jQuery(document).ready(function () {
   'use strict';
@@ -96,6 +98,7 @@ jQuery(document).ready(function () {
   MAPRAMBLE.getPlaces();
 });
 </script>
+
 <style>
 #map {
   width: 300px;
