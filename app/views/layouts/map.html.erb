@@ -44,7 +44,6 @@ MAPRAMBLE.createMap = function () {
   'use strict';
   var centerLatLng, options;
 
-  // 最初に中心に初石駅を表示させる
   centerLatLng = new google.maps.LatLng(MAPRAMBLE.initial.lat, MAPRAMBLE.initial.lng);
 
   options = {
@@ -59,6 +58,7 @@ MAPRAMBLE.createMap = function () {
 
 MAPRAMBLE.getPlaces = function () {
   'use strict';
+	/* seedのplace内のデータを取得 */
   jQuery.ajax({
     type: "GET",
     url: '/places.json',
@@ -81,12 +81,13 @@ MAPRAMBLE.addMarker = function (place) {
     options = {
         position: new google.maps.LatLng(place.lat, place.lng),
         map: MAPRAMBLE.map,
-        icon: "http://maps.google.com/mapfiles/marker.png"
+        icon: place.type.icon
     };
 
     // マーカーの生成
     marker = new google.maps.Marker(options);
   }
+
 };
 
 MAPRAMBLE.setHeight = function () {
