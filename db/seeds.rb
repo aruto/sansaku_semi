@@ -29,10 +29,10 @@ c6 = Category.create(name: "スペイン料理")
 c7 = Category.create(name: "アメリカ料理")
 c8 = Category.create(name: "地中海料理")
 
-t1 = Type.create(name: "お食事処", icon: "restaurant.png")
-t2 = Type.create(name: "温泉",     icon: "spa.png")
-t3 = Type.create(name: "旅館",     icon: "hotel.png")
-t4 = Type.create(name: "お菓子",   icon: "sweets.png")
+t1 = Type.create(name: "お食事処", icon: "/icon/restaurant.png")
+t2 = Type.create(name: "温泉",     icon: "/icon/spa.png")
+t3 = Type.create(name: "旅館",     icon: "/icon/hotel.png")
+t4 = Type.create(name: "お菓子",   icon: "/icon/sweets.png")
 
 Initial.create(lat: 40.645427, lng: 140.59678, zoom: 16)
 
