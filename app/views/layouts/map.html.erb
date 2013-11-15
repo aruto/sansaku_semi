@@ -88,6 +88,21 @@ MAPRAMBLE.addMarker = function (place) {
     marker = new google.maps.Marker(options);
   }
 
+  // マーカーにイベントハンドラを設定
+        if (place.hasOwnProperty('isLocation')) {
+/*
+            google.maps.event.addListener(marker, 'click', function () {
+                $.mobile.changePage('/locations');
+            });
+*/
+        } else {
+            google.maps.event.addListener(marker, 'click', function () {
+                return (function (id) {
+                    $.mobile.changePage('/places/' + id);
+                }(place.id));
+            });
+        }
+
 };
 
 MAPRAMBLE.setHeight = function () {
