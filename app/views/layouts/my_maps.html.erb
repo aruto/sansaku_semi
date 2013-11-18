@@ -28,13 +28,13 @@
 <body>
 	<div data-role="page">
     <div data-role="header">
-      <h1><% if @page_title.present? then %><%= @page_title %><% else %>ながれやまオープンガーデン2013<% end %></h1>
+      <h1>青森市</h1>
+      <h1>グルメマップ</h1>
     </div>
     <div data-role="content">
 <%= yield %>
       <% if @home != true %>
       <hr />
-      <%= link_to 'ホームへ戻る', welcomes_path, { "data-role" => "button", "data-icon" => "home" } %>
       <% end %>
     </div>
   </div>
