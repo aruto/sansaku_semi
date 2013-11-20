@@ -19,7 +19,7 @@
 /*jslint browser:true */
 
 var MAPRAMBLE = {};
-
+/*
 // マップの初期中心位置
 MAPRAMBLE.initial = {
   zoom: 15,
@@ -38,6 +38,12 @@ MAPRAMBLE.initialize = function () {
   // Google Mapsの初期化
   MAPRAMBLE.createMap();
 };
+*/
+MAPRAMBLE.setInitial = function () {
+        MAPRAMBLE.console.log(MAPRAMBLE.initial);
+};       
+
+
 
 // マップを生成
 MAPRAMBLE.createMap = function () {
@@ -53,8 +59,9 @@ MAPRAMBLE.createMap = function () {
   };
 
   // Google Mapsをid="map"に生成
-  this.map = new google.maps.Map(jQuery("#map")[0], options);
+  MAPRAMBLE.map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 };
+
 
 MAPRAMBLE.getPlaces = function () {
   'use strict';
@@ -106,7 +113,24 @@ MAPRAMBLE.addMarker = function (place) {
 
 };
 
-MAPRAMBLE.setHeight = function () {
+  // ボタンに帯するイベントハンドラの設定
+    MAPRAMBLE.setEventHandler = function () {
+        $('#calcRoute').click(function (event) {
+            MAPRAMBLE.calcRoute();
+            event.preventDefault();
+        });
+
+        $('#getLocation').click(function (event) {
+            MAPRAMBLE.getLocation(function () {
+                MAPRAMBLE.deleteLocationMarker();
+                MAPRAMBLE.addLocationMarker();
+                MAPRAMBLE.setLocationCenter();
+            });
+            event.preventDefault();
+        });
+    };
+
+    MAPRAMBLE.setHeight = function () {
         var viewportHeight, mapHeight;
         viewportHeight = window.innerHeight || $(window).height();
         mapHeight = viewportHeight - $('#header').outerHeight() - 15 * 2;
@@ -115,31 +139,44 @@ MAPRAMBLE.setHeight = function () {
     };
 
 
-
-// メインプログラム
-$(document).on('pageshow','#map',function (){
-  'use strict';
-  MAPRAMBLE.initialize();
-  MAPRAMBLE.getPlaces();
-});
+ // メイン・プログラム
+    $(document).on('pageshow', "#map", function () {
+        MAPRAMBLE.setHeight();
+        MAPRAMBLE.setEventHandler();
+        if (MAPRAMBLE.hasOwnProperty('location') === false) {
+            MAPRAMBLE.getLocation(function () {
+                MAPRAMBLE.addLocationMarker();
+            });
+        }
+        MAPRAMBLE.setInitial();
+        MAPRAMBLE.createMap();
+        MAPRAMBLE.addPlaceMarkers();
+    });
 
 </script>
 
-<style type="text/css">
+<!--<style type="text/css">
         html, body { margin:0; padding:0; }
         #map { width:100%; height:100%; }
 </style>
-
+-->
 </head>
 
 <body>
-    <%= link_to "トップへ", :home_index, data: {role: :button} %>
-    <%= link_to "マイマップの登録一覧", :my_maps, data: {role: :button} %>
-     <!-- 地図の埋め込み表示 -->
-    <div data-role="page" id="map"></div>
-</body>
-
-
+  <div data-role="page" id="map">
+    <div data-role="header" id="header">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="/home/index">ホーム</a></li>
+          <li><a href="#" id="getLocation">現在位置</a></li>
+          <li><a href="#" id="calcRoute">ルート探索</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content" id="map_content">
+      <div id="mapCanvas"></div>
+    </div>
+  </div>
 </body>
 
 </html>
