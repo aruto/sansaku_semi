@@ -19,7 +19,7 @@
 /*jslint browser:true */
 
 var MAPRAMBLE = {};
-/*
+
 // マップの初期中心位置
 MAPRAMBLE.initial = {
   zoom: 15,
@@ -38,9 +38,10 @@ MAPRAMBLE.initialize = function () {
   // Google Mapsの初期化
   MAPRAMBLE.createMap();
 };
-*/
+
+
 MAPRAMBLE.setInitial = function () {
-        MAPRAMBLE.console.log(MAPRAMBLE.initial);
+        console.log(MAPRAMBLE.initial);
 };       
 
 
@@ -96,6 +97,7 @@ MAPRAMBLE.addMarker = function (place) {
     marker = new google.maps.Marker(options);
   }
 
+
   // マーカーにイベントハンドラを設定
         if (place.hasOwnProperty('isLocation')) {
 /*
@@ -113,6 +115,7 @@ MAPRAMBLE.addMarker = function (place) {
 
 };
 
+
   // ボタンに帯するイベントハンドラの設定
     MAPRAMBLE.setEventHandler = function () {
         $('#calcRoute').click(function (event) {
@@ -121,12 +124,15 @@ MAPRAMBLE.addMarker = function (place) {
         });
 
         $('#getLocation').click(function (event) {
+            /*
             MAPRAMBLE.getLocation(function () {
                 MAPRAMBLE.deleteLocationMarker();
                 MAPRAMBLE.addLocationMarker();
                 MAPRAMBLE.setLocationCenter();
             });
+            */
             event.preventDefault();
+
         });
     };
 
@@ -135,7 +141,7 @@ MAPRAMBLE.addMarker = function (place) {
         viewportHeight = window.innerHeight || $(window).height();
         mapHeight = viewportHeight - $('#header').outerHeight() - 15 * 2;
         $('#mapCanvas').css('height', mapHeight);
-        MAPRAMBLE.console.log('mapHeight: ' + mapHeight);
+        console.log('mapHeight: ' + mapHeight);
     };
 
 
@@ -144,13 +150,15 @@ MAPRAMBLE.addMarker = function (place) {
         MAPRAMBLE.setHeight();
         MAPRAMBLE.setEventHandler();
         if (MAPRAMBLE.hasOwnProperty('location') === false) {
+            /*
             MAPRAMBLE.getLocation(function () {
                 MAPRAMBLE.addLocationMarker();
             });
+*/
         }
         MAPRAMBLE.setInitial();
         MAPRAMBLE.createMap();
-        MAPRAMBLE.addPlaceMarkers();
+        //MAPRAMBLE.addPlaceMarkers();
     });
 
 </script>
