@@ -65,6 +65,7 @@ MAPRAMBLE.getPlaces = function () {
     dataType: 'json'
   }).done(function (places) {
     places.map(function (place) {
+      console.log(place.id);
       MAPRAMBLE.addMarker(place);
     });
   }).fail(function (jqXHR, textStatus) {
@@ -76,7 +77,7 @@ MAPRAMBLE.getPlaces = function () {
 MAPRAMBLE.addMarker = function (place) {
   'use strict';
   var marker, options;
-
+  console.log(place);
   if (place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
     options = {
         position: new google.maps.LatLng(place.lat, place.lng),
@@ -116,11 +117,12 @@ MAPRAMBLE.setHeight = function () {
 
 
 // メインプログラム
-jQuery(document).ready(function () {
+$(document).on('pageshow','#map',function (){
   'use strict';
   MAPRAMBLE.initialize();
   MAPRAMBLE.getPlaces();
 });
+
 </script>
 
 <style type="text/css">
@@ -130,11 +132,11 @@ jQuery(document).ready(function () {
 
 </head>
 
-<body onload="initialize()">
-    <%= link_to "トップへ", :home_index, data: {role: :button} %>
-    <%= link_to "マイマップの登録一覧", :my_maps, data: {role: :button} %>
+<body>
+    <!--<%= link_to "トップへ", :home_index, data: {role: :button} %>
+    <%= link_to "マイマップの登録一覧", :my_maps, data: {role: :button} %>-->
      <!-- 地図の埋め込み表示 -->
-    <div id="map"></div>
+    <div data-role="page" id="map"></div>
 </body>
 
 
