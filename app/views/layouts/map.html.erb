@@ -38,12 +38,11 @@ MAPRAMBLE.initialize = function () {
   // Google Mapsの初期化
   MAPRAMBLE.createMap();
 };
-
-
+/*
 MAPRAMBLE.setInitial = function () {
         console.log(MAPRAMBLE.initial);
 };       
-
+*/
 
 
 // マップを生成
@@ -62,7 +61,7 @@ MAPRAMBLE.createMap = function () {
   // Google Mapsをid="map"に生成
   MAPRAMBLE.map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 };
-/*
+
  // マーカー群を追加
     MAPRAMBLE.addPlaceMarkers = function () {
         MAPRAMBLE.places.map(function (place) {
@@ -79,7 +78,7 @@ MAPRAMBLE.createMap = function () {
             MAPRAMBLE.circle.setMap(null);
         }
     };
-*/
+
 
 MAPRAMBLE.getPlaces = function () {
   'use strict';
@@ -139,7 +138,7 @@ MAPRAMBLE.addMarker = function (place) {
         }
 */
 };
-/*
+
 MAPRAMBLE.outputLocation = function (position, callback) {
         var output, location = {};
         MAPRAMBLE.attempts = 0;
@@ -309,7 +308,7 @@ MAPRAMBLE.getLocation = function (callback) {
         MAPRAMBLE.map.setCenter(new google.maps.LatLng(MAPRAMBLE.location.lat, MAPRAMBLE.location.lng));
     };
 
-*/
+
   // ボタンに帯するイベントハンドラの設定
     MAPRAMBLE.setEventHandler = function () {
         $('#calcRoute').click(function (event) {
@@ -380,8 +379,8 @@ MAPRAMBLE.getLocation = function (callback) {
             });
         }
     };
-
 */
+
  // メイン・プログラム
     $(document).on('pageshow', "#map", function () {
         'use strict';
@@ -390,7 +389,7 @@ MAPRAMBLE.getLocation = function (callback) {
         
         MAPRAMBLE.initialize();
         MAPRAMBLE.getPlaces();
-/*
+
         MAPRAMBLE.setHeight();
         MAPRAMBLE.setEventHandler();
         if (MAPRAMBLE.hasOwnProperty('location') === false) {
@@ -399,10 +398,10 @@ MAPRAMBLE.getLocation = function (callback) {
             });
         }
 
-        MAPRAMBLE.setInitial();
-        MAPRAMBLE.createMap();
-        MAPRAMBLE.addPlaceMarkers();
-   */     
+        //MAPRAMBLE.setInitial();
+        //MAPRAMBLE.createMap();
+        //MAPRAMBLE.addPlaceMarkers();
+        
     });
 
 </script>
