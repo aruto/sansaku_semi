@@ -6,6 +6,7 @@ class MyMapsController < ApplicationController
   def index
     @way_points = @current_member.my_map.way_points
 		@my_map = @current_member.my_map
+		render layout: "my_maps"
   end
 
   # GET /my_maps/1
