@@ -62,7 +62,7 @@ MAPRAMBLE.createMap = function () {
   // Google Mapsをid="map"に生成
   MAPRAMBLE.map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 };
-
+/*
  // マーカー群を追加
     MAPRAMBLE.addPlaceMarkers = function () {
         MAPRAMBLE.places.map(function (place) {
@@ -79,7 +79,7 @@ MAPRAMBLE.createMap = function () {
             MAPRAMBLE.circle.setMap(null);
         }
     };
-
+*/
 
 MAPRAMBLE.getPlaces = function () {
   'use strict';
@@ -102,39 +102,18 @@ MAPRAMBLE.getPlaces = function () {
 MAPRAMBLE.addMarker = function (place) {
   'use strict';
   var marker, options;
-  options = {
-            position: new google.maps.LatLng(place.lat, place.lng),
-            map: MAPRAMBLE.map
-        };
-        
-        if (place.hasOwnProperty('isCurrent') && place.isCurrent === true) {
-            options.icon = "http://maps.google.com/mapfiles/arrow.png";
-            options.shadow = "http://maps.google.com/mapfiles/arrowshadow.png";
-        } else if (place.hasOwnProperty('isLocation') && place.isLocation === true) {
-            options.icon = "/assets/marker_location.png";
-            if (place.hasOwnProperty('accuracy')) {
-                MAPRAMBLE.circle = new google.maps.Circle({
-                    center: options.position,
-                    radius: place.accuracy,
-                    fillColor: "#9999FF",
-                    fillOpcity: 0.35,
-                    strokeColor: "#6666CC",
-                    strokeOpacity: 0.8,
-                    strokeWeight: 1,
-                    map: options.map
-                });
-            }
-        } else if (place.hasOwnProperty('isCheckin') && place.isCheckin === true) {
-            options.icon = "/assets/marker_checkin.png";
-        } else if (place.hasOwnProperty('isWayPoint') && place.isWayPoint === true) {
-            options.icon = "/assets/marker_my_map.png";
-        } else {
-            options.icon = "http://maps.google.com/mapfiles/marker.png";
-        }
+    console.log(place);
+    
+    if (place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
+    options = {
+        position: new google.maps.LatLng(place.lat, place.lng),
+        map: MAPRAMBLE.map,
+        icon: place.type.icon
+    };
 
     // マーカーの生成
     marker = new google.maps.Marker(options);
-  
+  }
 
 
   // マーカーにイベントハンドラを設定
@@ -151,16 +130,16 @@ MAPRAMBLE.addMarker = function (place) {
                 }(place.id));
             });
         }
-
+/*
           // マーカーを配列に入れる
         if (place.hasOwnProperty('isLocation')) {
             MAPRAMBLE.locationMarker = marker;
         } else {
             MAPRAMBLE.markers.push(marker);
         }
-
+*/
 };
-
+/*
 MAPRAMBLE.outputLocation = function (position, callback) {
         var output, location = {};
         MAPRAMBLE.attempts = 0;
@@ -330,7 +309,7 @@ MAPRAMBLE.getLocation = function (callback) {
         MAPRAMBLE.map.setCenter(new google.maps.LatLng(MAPRAMBLE.location.lat, MAPRAMBLE.location.lng));
     };
 
-
+*/
   // ボタンに帯するイベントハンドラの設定
     MAPRAMBLE.setEventHandler = function () {
         $('#calcRoute').click(function (event) {
@@ -405,9 +384,13 @@ MAPRAMBLE.getLocation = function (callback) {
 */
  // メイン・プログラム
     $(document).on('pageshow', "#map", function () {
+        'use strict';
         // 位置情報取得の試行回数
-        MAPRAMBLE.attemps = 0;
-
+        //MAPRAMBLE.attemps = 0;
+        
+        MAPRAMBLE.initialize();
+        MAPRAMBLE.getPlaces();
+/*
         MAPRAMBLE.setHeight();
         MAPRAMBLE.setEventHandler();
         if (MAPRAMBLE.hasOwnProperty('location') === false) {
@@ -415,9 +398,11 @@ MAPRAMBLE.getLocation = function (callback) {
                 MAPRAMBLE.addLocationMarker();
             });
         }
+
         MAPRAMBLE.setInitial();
         MAPRAMBLE.createMap();
         MAPRAMBLE.addPlaceMarkers();
+   */     
     });
 
 </script>
