@@ -1,7 +1,7 @@
 <h1>マイマップの登録一覧</h1>
 
 <% if @way_points.present? %>
-<ul data-role="listview" data-inset="true">
+<ul data-role="listview" data-inset="true" class="sortable">
   <% @way_points.each do |way_point| %>
   <li><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
   <% end %>
@@ -10,6 +10,11 @@
 
 <br>
 
+<script>
+$(function() {
+    $(".sortable").sortable();
+});
+</script>
 <!--
 <%= link_to 'New My map', new_my_map_path %>
 -->
