@@ -113,8 +113,7 @@ MAPRAMBLE.addMarker = function (place) {
         options.icon = place.type.icon;
     
     }else if (place.hasOwnProperty('isLocation') && place.isLocation === true) {
-           
-                options.icon = "/assets/marker_location.png";
+                options.icon = "/assets/images/marker_location.png";
     }
    // マーカーの生成
     marker = new google.maps.Marker(options);
