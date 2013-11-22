@@ -109,12 +109,12 @@ MAPRAMBLE.addMarker = function (place) {
             map: MAPRAMBLE.map
         };
 
-    if (place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
+    if (place.hasOwnProperty('isLocation') && place.isLocation === true) {
+                options.icon = "/assets/marker_location.png";
+    }else if(place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
         options.icon = place.type.icon;
-    
-    }else if (place.hasOwnProperty('isLocation') && place.isLocation === true) {
-                options.icon = "/assets/images/marker_location.png";
     }
+    
    // マーカーの生成
     marker = new google.maps.Marker(options);
 
@@ -184,9 +184,9 @@ MAPRAMBLE.outputLocation = function (position, callback) {
         }
 
         console.log(output);
-        location.location.latitude = 35.880736;
-        location.location.longitude = 139.9103;
-        location.location.accuracy = 65.0;
+        //location.location.latitude = 35.880736;
+        //location.location.longitude = 139.9103;
+        //location.location.accuracy = 65.0;
 
         MAPRAMBLE.location = {};
         MAPRAMBLE.location.lat = location.location.latitude;
