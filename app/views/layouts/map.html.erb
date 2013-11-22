@@ -61,14 +61,14 @@ MAPRAMBLE.createMap = function () {
   // Google Mapsをid="map"に生成
   MAPRAMBLE.map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 };
-
+/*
  // マーカー群を追加
     MAPRAMBLE.addPlaceMarkers = function () {
         MAPRAMBLE.places.map(function (place) {
             MAPRAMBLE.addMarker(place);
         });
     };
-
+*/
     // 位置マーカーを削除
     MAPRAMBLE.deleteLocationMarker = function () {
         if (MAPRAMBLE.hasOwnProperty('locationMarker')) {
@@ -78,6 +78,7 @@ MAPRAMBLE.createMap = function () {
             MAPRAMBLE.circle.setMap(null);
         }
     };
+
 
 
 MAPRAMBLE.getPlaces = function () {
@@ -103,16 +104,20 @@ MAPRAMBLE.addMarker = function (place) {
   var marker, options;
     console.log(place);
     
-    if (place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
     options = {
-        position: new google.maps.LatLng(place.lat, place.lng),
-        map: MAPRAMBLE.map,
-        icon: place.type.icon
-    };
+            position: new google.maps.LatLng(place.lat, place.lng),
+            map: MAPRAMBLE.map
+        };
 
-    // マーカーの生成
+    if (place.hasOwnProperty('lat') && place.hasOwnProperty('lng') && place.lat !== null && place.lng !== null) {
+        options.icon = place.type.icon;
+    
+    }else if (place.hasOwnProperty('isLocation') && place.isLocation === true) {
+           
+                options.icon = "/assets/marker_location.png";
+    }
+   // マーカーの生成
     marker = new google.maps.Marker(options);
-  }
 
 
   // マーカーにイベントハンドラを設定
@@ -130,7 +135,7 @@ MAPRAMBLE.addMarker = function (place) {
             });
         }
 /*
-          // マーカーを配列に入れる
+        // マーカーを配列に入れる
         if (place.hasOwnProperty('isLocation')) {
             MAPRAMBLE.locationMarker = marker;
         } else {
@@ -196,7 +201,7 @@ MAPRAMBLE.outputLocation = function (position, callback) {
             dataType: "json"
         }).done(function (data) {
             console.log('id=' + data.id);
-            // MAPRAMBLE.location.id = data.id;
+            //MAPRAMBLE.location.id = data.id;
         });
         callback();
     };
