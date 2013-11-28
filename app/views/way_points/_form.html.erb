@@ -10,10 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-    <%= f.hidden_field :place_id %>
-    <%= f.hidden_field :my_map_id %>
-  <div class="actions">
-    <%= f.submit("マイマップに追加") %>
+<!--
+   <div class="field">
+    <%= f.label :place_id %><br />
+    <%= f.number_field :place_id %>
   </div>
+  <div class="field">
+    <%= f.label :my_map_id %><br />
+    <%= f.number_field :my_map_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+-->
 <% end %>
