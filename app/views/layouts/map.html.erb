@@ -20,6 +20,34 @@
 
 var MAPRAMBLE = {};
 
+MAPRAMBLE.places = [];
+MAPRAMBLE.way_points = [];
+<% if @places.present? %>
+  <% @places.sort{|a, b| a.id <=> b.id }.each do |place| %>
+MAPRAMBLE.places[<%= place.id %>] = { id: <%= place.id %>, lat: <%= place.lat %>, lng: <%= place.lng %> };
+  <% end %>
+<% end %>
+<% if @checkins.present? %>
+  <% @checkins.each do |checkin| %>
+MAPRAMBLE.places[<%= checkin.place_id %>].isCheckin = true;
+  <% end %>
+<% end %>
+<% if @location.present? %>
+MAPRAMBLE.location = { lat: <%= @location.latitude %>, lng: <%= @location.longitude %>, accuracy: <%= @location.accuracy %>, isLocation: true };
+<% end %>
+<% if @initial.present? %>
+MAPRAMBLE.initial = { lat: <%= @initial.lat %>, lng: <%= @initial.lng %>, zoom: <%= @initial.zoom %> };
+<% if @initial.places_id.present? %>
+MAPRAMBLE.places[<%= @initial.places_id %>].isCurrent = true;
+<% end %>
+<% end %>
+<% if @my_map.present? %>
+  <% @my_map.way_points.each do |way_point| %>
+MAPRAMBLE.way_points.push(<%= way_point.place.id %>);
+MAPRAMBLE.places[<%= way_point.place_id %>].isWayPoint = true;
+  <% end %>
+<% end %>
+
 // マップの初期中心位置
 MAPRAMBLE.initial = {
   zoom: 15,
@@ -61,14 +89,14 @@ MAPRAMBLE.createMap = function () {
   // Google Mapsをid="map"に生成
   MAPRAMBLE.map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 };
-/*
+
  // マーカー群を追加
     MAPRAMBLE.addPlaceMarkers = function () {
         MAPRAMBLE.places.map(function (place) {
             MAPRAMBLE.addMarker(place);
         });
     };
-*/
+
     // 位置マーカーを削除
     MAPRAMBLE.deleteLocationMarker = function () {
         if (MAPRAMBLE.hasOwnProperty('locationMarker')) {
@@ -338,7 +366,7 @@ MAPRAMBLE.getLocation = function (callback) {
         $('#mapCanvas').css('height', mapHeight);
         console.log('mapHeight: ' + mapHeight);
     };
-/*
+
     MAPRAMBLE.calcRoute = function () {
         console.log('calcing');
         var options, request, pointsNumber, directionsService, place, origin, destination, waypoints, i;
@@ -383,7 +411,7 @@ MAPRAMBLE.getLocation = function (callback) {
             });
         }
     };
-*/
+
 
  // メイン・プログラム
     $(document).on('pageshow', "#map", function () {
@@ -405,7 +433,7 @@ MAPRAMBLE.getLocation = function (callback) {
         //MAPRAMBLE.setInitial();
         //MAPRAMBLE.createMap();
         //MAPRAMBLE.addPlaceMarkers();
-        
+    
     });
 
 </script>
