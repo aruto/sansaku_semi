@@ -19,6 +19,7 @@
 /*jslint browser:true */
 
 var MAPRAMBLE = {};
+/*
 MAPRAMBLE.current = {};
 
 MAPRAMBLE.places = [];
@@ -48,6 +49,7 @@ MAPRAMBLE.way_points.push(<%= way_point.place.id %>);
 MAPRAMBLE.places[<%= way_point.place_id %>].isWayPoint = true;
   <% end %>
 <% end %>
+*/
 
 // マップの初期中心位置
 MAPRAMBLE.initial = {
@@ -67,11 +69,11 @@ MAPRAMBLE.initialize = function () {
   // Google Mapsの初期化
   MAPRAMBLE.createMap();
 };
-
+/*
 MAPRAMBLE.setInitial = function () {
         console.log(MAPRAMBLE.initial);
 };       
-
+*/
 
 
 // マップを生成
@@ -90,14 +92,14 @@ MAPRAMBLE.createMap = function () {
   // Google Mapsをid="map"に生成
   MAPRAMBLE.map = new google.maps.Map(document.getElementById("mapCanvas"), options);
 };
-
+/*
  // マーカー群を追加
     MAPRAMBLE.addPlaceMarkers = function () {
         MAPRAMBLE.places.map(function (place) {
             MAPRAMBLE.addMarker(place);
         });
     };
-
+*/
     // 位置マーカーを削除
     MAPRAMBLE.deleteLocationMarker = function () {
         if (MAPRAMBLE.hasOwnProperty('locationMarker')) {

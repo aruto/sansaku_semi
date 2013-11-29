@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         redirect_to login_url, notice: "ログインしてください。"
       end
     end
-
+/
 def login?
     @current_member.present?
   end
@@ -47,5 +47,5 @@ def login?
     end
     my_map
   end
-
+/
 end

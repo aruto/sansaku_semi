@@ -1,7 +1,10 @@
 class MapController < ApplicationController
-   layout "map"
+   /layout "map"/
+
   def index
-  	@places = Place.all
+        render layout: "map"
+
+  	/@places = Place.all
   	@initial = Initial.all[0]
     @my_map = current_my_map
     
@@ -31,6 +34,6 @@ class MapController < ApplicationController
         @initial.zoom = 15
       end
     end
-
+/
   end
 end
