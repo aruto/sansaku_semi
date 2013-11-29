@@ -55,10 +55,17 @@ class WayPointsController < ApplicationController
   # DELETE /way_points/1
   # DELETE /way_points/1.json
   def destroy
+    
+
+       @my_map = current_my_map
+    #@way_point = WayPoint.where(["place_id = ? && my_map_id = ?", params[:place_id], @my_map.id]).limit(1)[0]
+    @way_point = WayPoint.find(params[:id])
     @way_point.destroy
+
     respond_to do |format|
-      format.html { redirect_to way_points_url }
+      format.html { redirect_to @my_map }
       format.json { head :no_content }
+    end
     end
   end
 
