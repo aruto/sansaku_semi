@@ -1,8 +1,19 @@
 class MapController < ApplicationController
-   /layout "map"/
+  #layout "map"
 
   def index
-        render layout: "map"
+    # 場所の一覧の取得
+    @places = Place.all
+
+    # マイマップの取得。なければ新規作成
+    @my_map = @current_member.my_map
+    unless @my_map.present?
+      @my_map = MyMap.create
+      @my_map.member = @current_member
+      @my_map.save()
+    end
+
+    render layout: "map"
 =begin
   	@places = Place.all
   	@initial = Initial.all[0]
