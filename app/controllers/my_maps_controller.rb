@@ -5,8 +5,8 @@ class MyMapsController < ApplicationController
   # GET /my_maps.json
   def index
     @way_points = @current_member.my_map.way_points
-		@my_map = @current_member.my_map
-		render layout: "my_maps"
+@my_map = @current_member.my_map
+render layout: "my_maps"
   end
 
   # GET /my_maps/1
@@ -57,10 +57,10 @@ class MyMapsController < ApplicationController
   # DELETE /my_maps/1.json
   def destroy
 
-  	@way_points = @current_member.my_map.way_points
+  @way_points = @current_member.my_map.way_points
 
     @way_points.each do |way_point|
-    	way_point.destroy
+    way_point.destroy
     end
 
     respond_to do |format|
