@@ -27,6 +27,18 @@
   <%= @place.description %>
 </p>
 
+<hr>
+<%= render @place.comments.build %>
+
+
+<p>
+    <b>comments:</b>
+    <% @place.comments.each do |comment| %>
+      <p>
+        <%= "#{comment.comment} by #{comment.name}" %>
+      </p>
+    <% end %>
+</p>
 <!--	<p>
   <strong>Type:</strong>
   <%= @place.type %>

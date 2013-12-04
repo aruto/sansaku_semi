@@ -18,7 +18,9 @@ Sansaku::Application.routes.draw do
 
   resources :locations
 
-  resources :places
+  resources :places do
+    resources :comments , :only =>[:new,:create]
+  end
 
   resources :initials
 

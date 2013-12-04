@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930050523) do
+ActiveRecord::Schema.define(version: 20131204114108) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20130930050523) do
 
   add_index "checkins", ["member_id"], name: "index_checkins_on_member_id"
   add_index "checkins", ["place_id"], name: "index_checkins_on_place_id"
+
+  create_table "comments", force: true do |t|
+    t.integer  "place_id"
+    t.string   "comment"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["place_id"], name: "index_comments_on_place_id"
 
   create_table "initials", force: true do |t|
     t.float    "lat"
