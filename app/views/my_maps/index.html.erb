@@ -1,7 +1,8 @@
 <h1>マイマップの登録一覧</h1>
 
+
 <% if @way_points.present? %>
-<ul data-role="listview" data-inset="true" class="sortable" >
+<ul data-role="listview" data-inset="true" class="sortable" data-theme="e">
   <% @way_points.each do |way_point| %>
   <li><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
   <% end %>
