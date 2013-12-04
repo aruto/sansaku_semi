@@ -1,4 +1,4 @@
-<%= from for [comment.place, comment] do |f| %>
+<%= form_for [comment.place, comment] do |f| %>
 	<div class="field">
 		<%= f.label :comment, 'any comment?' %><br>
 		<%= f.text_area :comment %>
