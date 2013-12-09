@@ -38,18 +38,65 @@
 <%= link_to 'Back', places_path %>
 -->
 
+<tbody>
+                <tr>
+                  <th>【住所】</th>
+                  <td><br></td>
+                </tr>
+                <tr>
+                  <th>【TEL】</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>【期間・<br>時間帯】</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>【料金】</th>
+                  <td>料金：無料</td>
+                </tr>
+                <tr>
+                  <th>【交通】</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>【詳細】</th>
+                  
+                </tr>
+                <tr>
+                  <th>【備考】</th>
+                  <td></td>
+                </tr>
+              </tbody>
+
+
+
+
+
+
+
+
+
 <%= link_to "マップを表示", :map_index, data: {role: :button} %>
 <%= render 'way_points/form' %>
 
-<hr>
-<%= render @place.comments.build %>
+
 
 
 <p>
     <b>comments:</b>
     <% @place.comments.each do |comment| %>
       <p>
-        <%= "#{comment.comment} by #{comment.name}" %>
+        <%= "#{comment.id}   #{comment.comment} by #{comment.name}" %>
       </p>
     <% end %>
 </p>
+
+<hr>
+<%= render @place.comments.build %>
+
+
+
+
+
+

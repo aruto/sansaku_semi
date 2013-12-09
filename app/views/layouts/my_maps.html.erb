@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title><% if @page_title.present? then %><%= @page_title %><% else %>青森市グルメマップ<% end %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>Sansaku</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+  <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
-  <!--  <script src="/js/myMapSortable.js"></script> -->
-  <% if ENV['RAILS_ENV'] == "production" %>
-  <% end %>
 </head>
 <body>
 	<div data-role="page"　data-theme="e" >
     <div data-role="header" data-theme="e" >
-      <img src="/icon/rogo.png" width="315" height="70" alt="" >
+      <img src="/icon/rogo.png" width="315" height="70" alt="" class="center">
       <!--
       <h1>青森市</h1>
       <h1>グルメマップ</h1>
     -->
     </div>
+    <style>
+.center {
+   display:block;
+   margin:0 auto;
+}
+</style>
     <div data-role="content"　data-theme="e">
       <%= yield %>
         <% if @home != true %>
