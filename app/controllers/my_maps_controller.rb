@@ -42,22 +42,23 @@ class MyMapsController < ApplicationController
   # PATCH/PUT /my_maps/1
   # PATCH/PUT /my_maps/1.json
   def update
-    respond_to do |format|
-      if @my_map.update(my_map_params)
-        format.html { redirect_to @my_map, notice: 'My map was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @my_map.errors, status: :unprocessable_entity }
-      end
-    end
+
+  	w_i = params[:way_point_ids].split(",")
+  	
+  	p_i = params[:place_ids].split(",")
+  	
+  	w_i.each do |item|
+  		puts p_i
+  	end
+  	
+    render text: "#{params[:way_point_ids]} #{params[:place_ids]}"
   end
 
   # DELETE /my_maps/1
   # DELETE /my_maps/1.json
   def destroy
 
-  @way_points = @current_member.my_map.way_points
+    @way_points = @current_member.my_map.way_points
 
     @way_points.each do |way_point|
     way_point.destroy

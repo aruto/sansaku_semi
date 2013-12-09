@@ -1,8 +1,16 @@
 <h1>マイマップの登録一覧</h1>
 
-<form method="post" action="/my_map/#{way_point.id}">
-	<input type="hidden" name="way_point_ids" value="@way_point.my_map_id".join(",")>
-	<input type="hidden" name="place_ids" value="@way_point.place_id".join(",")>
+<%= form_tag "/my_maps/#{@my_map.id}", :method => "patch" do %>
+	<%= hidden_field_tag "way_point_ids", "1, 2, 5" %>
+	<%= hidden_field_tag "place_ids", "2, 9, 3" %>
+	<%= submit_tag "マイマップの順路変更" %>
+<% end %>
+
+<!--
+<form method="post" type="hidden" action="/my_maps/<%= @my_map.id %>">
+	<input type="hidden" name="way_point_ids" value="1,2,5">
+	<input type="hidden" name="place_ids" value="2,9,3">
+	<input type="hidden" name="_method" value="patch">
 <% if @way_points.present? %>
 <ul data-role="listview" data-inset="true" class="sortable" >
   <% @way_points.each do |way_point| %>
@@ -12,6 +20,7 @@
 <% end %>
 	<p><input type="submit" value="マイマップの順路変更"></p>
 </form>
+-->
 
 <br>
 
