@@ -1,22 +1,25 @@
 <h1>マイマップの登録一覧</h1>
 
-
+<form method="post" action="/way_points.json">
+	<input type="hidden" name="way_point_ids" value="@way_point.my_map_id".join(",")>
+	<input type="hidden" name="place_ids" value="@way_point.place_id".join(",")>
 <% if @way_points.present? %>
-<ul data-role="listview" data-inset="true" class="sortable" data-theme="e">
+<ul data-role="listview" data-inset="true" class="sortable" >
   <% @way_points.each do |way_point| %>
-  <li><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
+    <li><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
   <% end %>
 </ul>
 <% end %>
+	<p><input type="submit" value="マイマップの順路変更"></p>
+</form>
 
 <br>
 
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="js/jquery.ui.touch-punch.min.js"></script>
 <script>
-  $(".sortable").sortable();
+$(".sortable").sortable();
 </script>
-
 <!--
 <%= link_to 'New My map', new_my_map_path %>
 -->
