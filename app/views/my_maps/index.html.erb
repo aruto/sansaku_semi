@@ -1,6 +1,6 @@
 <h1>マイマップの登録一覧</h1>
 
-<form method="post" action="/way_points.json">
+<form method="post" action="/my_map/#{way_point.id}">
 	<input type="hidden" name="way_point_ids" value="@way_point.my_map_id".join(",")>
 	<input type="hidden" name="place_ids" value="@way_point.place_id".join(",")>
 <% if @way_points.present? %>
