@@ -2,8 +2,17 @@
 
 <%= form_tag "/my_maps/#{@my_map.id}", :method => "patch" do %>
 	<%= hidden_field_tag "way_point_ids", "1, 2, 5" %>
-	<%= hidden_field_tag "place_ids", "2, 9, 3" %>
-	<%= submit_tag "マイマップの順路変更" %>
+	<%= hidden_field_tag "place_ids", "2, 9, 3"  %>
+
+	<% if @way_points.present? %>
+		<ul data-role="listview" data-inset="true" class="sortable" >
+  		<% @way_points.each do |way_point| %>
+    		<li id="<%= way_point.place.id %>"><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
+  		<% end %>
+		</ul>
+	<% end %>
+
+	<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %>
 <% end %>
 
 <!--
@@ -27,7 +36,17 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="js/jquery.ui.touch-punch.min.js"></script>
 <script>
-$(".sortable").sortable();
+	$(".sortable").sortable();
+
+	$("#submitsort").click(function(e) {
+		var result = $(".sortable").sortable("toArray");
+		// $("#result").val(result);
+    // $("form").submit();
+    console.log(result);
+    e.preventDefault();
+  });
+
+
 </script>
 <!--
 <%= link_to 'New My map', new_my_map_path %>
