@@ -12,7 +12,7 @@
 		</ul>
 	<% end %>
 
-	<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %>
+<!--	<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %> -->
 <% end %>
 
 <!--
@@ -36,16 +36,24 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="js/jquery.ui.touch-punch.min.js"></script>
 <script>
-	$(".sortable").sortable();
+	$(".sortable").sortable({
+		update: function(e, ui) {
+			var result = $(".sortable").sortable("toArray");
+			//	$("#result").val(result);
+	    //	$("form").submit();
+  	  console.log(result);
+    	e.preventDefault();	
+		}
+	});
 
-	$("#submitsort").click(function(e) {
+/*	$("#submitsort").click(function(e) {
 		var result = $(".sortable").sortable("toArray");
-		// $("#result").val(result);
-    // $("form").submit();
+		$("#result").val(result);
+    $("form").submit();
     console.log(result);
     e.preventDefault();
   });
-
+*/
 
 </script>
 <!--

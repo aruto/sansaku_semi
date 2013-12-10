@@ -52,7 +52,7 @@ class MyMapsController < ApplicationController
   		#	@my_map.update_attribute = { :way_point.id = p_i}
   	end
   	
-  render text: "#{params[:way_point_ids]} #{params[:place_ids]}"
+  #	render text: "#{params[:way_point_ids]} #{params[:place_ids]}"
   end
 
   # DELETE /my_maps/1
