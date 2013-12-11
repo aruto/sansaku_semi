@@ -2,7 +2,7 @@ class MyMap < ActiveRecord::Base
  has_many :way_points, dependent: :destroy
   belongs_to :member
 
-    has_many :way_points
+  has_many :way_points
 
 
   def add_place(place_id)
