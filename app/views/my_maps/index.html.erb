@@ -12,7 +12,7 @@
 		</ul>
 	<% end %>
 
-<!--	<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %> -->
+	<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %>
 <% end %>
 
 <!--
@@ -39,21 +39,15 @@
 	$(".sortable").sortable({
 		update: function(e, ui) {
 			var result = $(".sortable").sortable("toArray");
-			//	$("#result").val(result);
-	    //	$("form").submit();
   	  console.log(result);
-    	e.preventDefault();	
+			document.getElementById("place_ids").value = result;
 		}
 	});
 
-/*	$("#submitsort").click(function(e) {
-		var result = $(".sortable").sortable("toArray");
+	$("#submitsort").click(function(e) {
 		$("#result").val(result);
     $("form").submit();
-    console.log(result);
-    e.preventDefault();
   });
-*/
 
 </script>
 <!--
