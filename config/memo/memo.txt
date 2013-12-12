@@ -1,0 +1,237 @@
+<<<<<<< HEAD
+◎はrails sでテスト、　○はsansaku/db/seed に書き込み　☆はseedテスト済み
+
+メンバー　 　◎　☆
+カテゴリー 　◎　☆
+種類　　　 　◎　☆
+初期位置　 　◎　☆
+場所 　　　　◎　☆
+現在位置 　　◎　☆
+場所画像 　　◎　☆
+マイマップ 　◎　☆
+チェックイン ◎　☆
+経由地 　　　◎　☆
+
+
+
+rails new sansaku
+
+SouceTree
+「Create New Repository」で「sansaku」を指定。「create」。
+登録確認
+コミット
+
+github
+Repository nameは「sansaku_semi」
+
+Ruby on Rails
+rails generate scaffold member で members を作成
+rails g scaffold category で categories を作成
+rails g scaffold type で types を作成
+rails g scaffold initial で initials を作成
+rails g scaffold place で places を作成
+rails g scaffold location で locations を作成
+rails g scaffold place_image で place_images を作成
+rails g scaffold my_map で my_maps を作成
+rails g scaffold checkin で checkins を作成
+rails g scaffold way_point で way_points を作成
+テスト終了
+
+●データベースの設定（関係性の設定）
+sansaku/app/models で各テーブルのidの関係性を設定
+例1）カテゴリー(1)　－　(n)場所
+   　　id          ←  カテゴリーid
+
+	カテゴリー
+	has_many 場所（複数形）
+
+	場所
+	belongs_to カテゴリー（単数形）
+
+例2）場所(1)　－　(1)場所画像
+       id　　 ←　　　場所id
+
+	場所
+	has_one 場所画像（単数形）
+
+	場所画像
+	belongs_to 場所（単数形）
+
+・カテゴリー(id)と場所(カテゴリーid) 1:n
+・種類(id)と場所(種類id) 1:1
+・場所(id)と場所画像(場所id) 1:1
+・場所(id)と経由地(場所id) 1:n
+・場所(id)とチェックイン(場所id) 1:n
+・メンバー(id)と現在位置(メンバーid) 1:n
+・メンバー(id)とチェックイン(メンバーid) 1:n
+・メンバー(id)とマイマップ(メンバーid) 1:n
+・マイマップ(id)と経由地(マイマップid) 1:n
+
+sansaku/db/seed でテスト用にデータを作成
+PlaceImageは一旦置いておく
+
+PlaceImageをテスト用で作成
+
+seedのテストは完了
+
+トップの作成（コントローラー：home　ビュー：index）
+
+マップの作成（コントローラー：map　ビュー：index）
+
+
+●特殊な構造のhtml.erb
+・app\views\layouts\application.html.erb
+全てのページで共通の処理をしたい時、ここに書き込む事で全てに反映される。
+
+・app\views\share_footer.html.erb
+全てのページのフッターに共通の処理をする
+
+・app\views\share\_header.html.erb
+全てのページのヘッダーに共通の処理をする
+
+10/4
+ページが初期化される前にGoogleMapの初期化を行う必要があり、ページごとにidを振っておく必要が有る。
+ページにidが振られていない。
+application.html.erbに書き込むことでidを降ることができる。
+しかし、直接idを書くと全てのページで同じidが振られてしまう。
+そこで、ページごとに異なるidを設定する方法がある。
+しかし、難しい。
+そこで、マップのページだけ専用のレイアウトファイルを用意。
+その為、　app\views\layoutsmap.html.erb　を用意。
+この中にGoogle Maps APIの読み込み、Google Maps APIを利用したプログラム、マップ表示領域のスタイルシートを記述。
+map_controllerの中で、このレイアウトファイルを使用するように設定。
+
+※Google Maps APIをJquery mobileの中で使用するプログラムのメインプログラムはmap.html.erbは
+	$(document).on('pageshow', '#map-page',function () {
+	});
+	の中に書く。（#map-pageの部分はマップのページに指定したidである。）
+
+10/7
+categories#show の中身を書き込み
+
+10/8
+show.html.erb のプログラムを「データがあれば表示」に変更。
+全画面に出てくるユーザー名とログアウトボタンを非表示に。
+
+10/9
+マイマップの登録した場所を表示できるようにした。
+=======
+◎はrails sでテスト、　○はsansaku/db/seed に書き込み　☆はseedテスト済み
+
+メンバー　 　◎　☆
+カテゴリー 　◎　☆
+種類　　　 　◎　☆
+初期位置　 　◎　☆
+場所 　　　　◎　☆
+現在位置 　　◎　☆
+場所画像 　　◎　☆
+マイマップ 　◎　☆
+チェックイン ◎　☆
+経由地 　　　◎　☆
+
+
+
+rails new sansaku
+
+SouceTree
+「Create New Repository」で「sansaku」を指定。「create」。
+登録確認
+コミット
+
+github
+Repository nameは「sansaku_semi」
+
+Ruby on Rails
+rails generate scaffold member で members を作成
+rails g scaffold category で categories を作成
+rails g scaffold type で types を作成
+rails g scaffold initial で initials を作成
+rails g scaffold place で places を作成
+rails g scaffold location で locations を作成
+rails g scaffold place_image で place_images を作成
+rails g scaffold my_map で my_maps を作成
+rails g scaffold checkin で checkins を作成
+rails g scaffold way_point で way_points を作成
+テスト終了
+
+●データベースの設定（関係性の設定）
+sansaku/app/models で各テーブルのidの関係性を設定
+例1）カテゴリー(1)　－　(n)場所
+   　　id          ←  カテゴリーid
+
+	カテゴリー
+	has_many 場所（複数形）
+
+	場所
+	belongs_to カテゴリー（単数形）
+
+例2）場所(1)　－　(1)場所画像
+       id　　 ←　　　場所id
+
+	場所
+	has_one 場所画像（単数形）
+
+	場所画像
+	belongs_to 場所（単数形）
+
+・カテゴリー(id)と場所(カテゴリーid) 1:n
+・種類(id)と場所(種類id) 1:1
+・場所(id)と場所画像(場所id) 1:1
+・場所(id)と経由地(場所id) 1:n
+・場所(id)とチェックイン(場所id) 1:n
+・メンバー(id)と現在位置(メンバーid) 1:n
+・メンバー(id)とチェックイン(メンバーid) 1:n
+・メンバー(id)とマイマップ(メンバーid) 1:n
+・マイマップ(id)と経由地(マイマップid) 1:n
+
+sansaku/db/seed でテスト用にデータを作成
+PlaceImageは一旦置いておく
+
+PlaceImageをテスト用で作成
+
+seedのテストは完了
+
+トップの作成（コントローラー：home　ビュー：index）
+
+マップの作成（コントローラー：map　ビュー：index）
+
+
+●特殊な構造のhtml.erb
+・app\views\layouts\application.html.erb
+全てのページで共通の処理をしたい時、ここに書き込む事で全てに反映される。
+
+・app\views\share_footer.html.erb
+全てのページのフッターに共通の処理をする
+
+・app\views\share\_header.html.erb
+全てのページのヘッダーに共通の処理をする
+
+10/4
+ページが初期化される前にGoogleMapの初期化を行う必要があり、ページごとにidを振っておく必要が有る。
+ページにidが振られていない。
+application.html.erbに書き込むことでidを降ることができる。
+しかし、直接idを書くと全てのページで同じidが振られてしまう。
+そこで、ページごとに異なるidを設定する方法がある。
+しかし、難しい。
+そこで、マップのページだけ専用のレイアウトファイルを用意。
+その為、　app\views\layoutsmap.html.erb　を用意。
+この中にGoogle Maps APIの読み込み、Google Maps APIを利用したプログラム、マップ表示領域のスタイルシートを記述。
+map_controllerの中で、このレイアウトファイルを使用するように設定。
+
+※Google Maps APIをJquery mobileの中で使用するプログラムのメインプログラムはmap.html.erbは
+	$(document).on('pageshow', '#map-page',function () {
+	});
+	の中に書く。（#map-pageの部分はマップのページに指定したidである。）
+
+10/7
+categories#show の中身を書き込み
+
+10/8
+show.html.erb のプログラムを「データがあれば表示」に変更。
+全画面に出てくるユーザー名とログアウトボタンを非表示に。
+
+10/9
+マイマップの登録した場所を表示できるようにした。
+
+jquery ui draggableを使う
+>>>>>>> sort

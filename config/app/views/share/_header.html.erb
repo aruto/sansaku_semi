@@ -1,0 +1,23 @@
+<div data-role="header" data-theme="e" >
+	<img src="/icon/rogo.png" width="315" height="70" alt="" class="center" />
+	<!--
+	<h1>青森市</h1>
+	<h1>グルメマップ</h1>
+-->
+</div>
+<style>
+.center {
+   display:block;
+   margin:0 auto;
+}
+</style>
+
+
+<% if @current_member %>
+<div id="member">
+<!--	ユーザー: <%= @current_member.user %>	-->
+<!--<br> -->
+<!--	<%= button_to 'ログアウト', logout_path, method: :delete %>	-->
+</div>
+
+<% end %>

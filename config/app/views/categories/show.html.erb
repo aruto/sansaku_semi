@@ -1,0 +1,18 @@
+<!--<p id="notice"><%= notice %></p> -->
+
+<h2>
+  <%= @category.name %>の店一覧
+</h2>
+
+<% if @places.present? %>
+<ul data-role="listview" data-inset="true" data-theme="e" >
+  <% @places.each do |place| %>
+  <li><%= link_to place.name, place %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<!--
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+-->
