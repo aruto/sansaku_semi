@@ -1,2 +1,0 @@
-module WayPointsHelper
-end
