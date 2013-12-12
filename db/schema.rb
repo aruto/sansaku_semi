@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204114108) do
+ActiveRecord::Schema.define(version: 20131212133617) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -94,12 +94,12 @@ ActiveRecord::Schema.define(version: 20131204114108) do
     t.float    "lat"
     t.float    "lng"
     t.text     "description"
-    t.text     "address"
-    t.text     "tel"
-    t.text     "time"
     t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "address"
+    t.text     "tel"
+    t.text     "time"
   end
 
   add_index "places", ["category_id"], name: "index_places_on_category_id"
