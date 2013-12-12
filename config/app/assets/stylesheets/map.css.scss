@@ -1,0 +1,14 @@
+// Place all the styles related to the maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#mapCanvas {
+	width: 100%;
+	height: 376px;
+	margin: 0;
+	padding: 0;
+}
+
+.wordbreak {
+	overflow: visible !important;
+	white-space: normal !important;
+}

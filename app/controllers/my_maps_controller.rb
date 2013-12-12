@@ -42,17 +42,17 @@ class MyMapsController < ApplicationController
   # PATCH/PUT /my_maps/1
   # PATCH/PUT /my_maps/1.json
   def update
-  	w_i = params[:way_point_ids].split(",")
+    w_i = params[:way_point_ids].split(",")
   	
-  	p_i = params[:place_ids].split(",")
+    p_i = params[:place_ids].split(",")
   	
-  	w_i.each_with_index do |item, num|
-  		way_i = WayPoint.find(item)
-  		way_i.update_attributes({ :place_id => p_i[num]})
+    w_i.each_with_index do |item, num|
+    way_i = WayPoint.find(item)
+    way_i.update_attributes({ :place_id => p_i[num]})
   		#	@my_map.update_attribute = { :way_point.id = p_i}
-  	end
+    end
   	
-  	redirect_to "/my_maps"
+    redirect_to "/my_maps"
   	#	render text: "#{params[:place_ids]}"
   	
   end
