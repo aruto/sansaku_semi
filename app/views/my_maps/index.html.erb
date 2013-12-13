@@ -1,11 +1,12 @@
 <h1>マイマップの登録一覧</h1>
 
 <%= form_tag "/my_maps/#{@my_map.id}", :method => "patch" do %>
+
 	<%= hidden_field_tag "way_point_ids", "1, 2, 5" %>
 	<%= hidden_field_tag "place_ids", "2, 9, 3"  %>
 
 	<% if @way_points.present? %>
-		<ul data-role="listview" data-inset="true" class="sortable" >
+		<ul data-role="listview" data-inset="true" class="sortable" data-theme="e" >
   		<% @way_points.each do |way_point| %>
     		<li id="<%= way_point.place.id %>"><%= link_to way_point.place.name, "/places/#{way_point.place.id}" %></li>
   		<% end %>
