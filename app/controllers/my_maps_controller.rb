@@ -6,6 +6,21 @@ class MyMapsController < ApplicationController
   def index
     @way_points = @current_member.my_map.way_points
     @my_map = @current_member.my_map
+    
+    #@w_s = "1,2,5"
+		#@p_s = "2,9,3"
+		
+		@w_a = []
+		@p_a = []
+		
+		@way_points.each do |way_point|
+			@w_a.push(way_point.id)
+			@p_a.push(way_point.place_id)
+		end
+		
+		@w_s = @w_a.join(",")
+		@p_s = @p_a.join(",")
+		
     render layout: "my_maps"
   end
 
@@ -48,7 +63,7 @@ class MyMapsController < ApplicationController
   	
   	w_i.each_with_index do |item, num|
   		way_i = WayPoint.find(item)
-  		way_i.update_attributes({ :place_id => p_i[num]})
+  		way_i.update_attributes({ :place_id => p_i[num] })
   		#	@my_map.update_attribute = { :way_point.id = p_i}
   	end
   	

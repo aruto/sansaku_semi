@@ -2,8 +2,16 @@
 
 <%= form_tag "/my_maps/#{@my_map.id}", :method => "patch" do %>
 
+<<<<<<< HEAD
+=======
+	<%= hidden_field_tag "way_point_ids", @w_s %>
+	<%= hidden_field_tag "place_ids", @p_s  %>
+
+<!--
+>>>>>>> sort_save2
 	<%= hidden_field_tag "way_point_ids", "1, 2, 5" %>
 	<%= hidden_field_tag "place_ids", "2, 9, 3"  %>
+-->
 
 	<% if @way_points.present? %>
 		<ul data-role="listview" data-inset="true" class="sortable" data-theme="e" >
@@ -12,8 +20,13 @@
   		<% end %>
 		</ul>
 	<% end %>
+	
+	<%= submit_tag "マイマップの順路変更" , {:id => "submitsort", :data => { :role => "button"}}  %>
 
+<<<<<<< HEAD
 	<!--<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %>-->
+=======
+>>>>>>> sort_save2
 <% end %>
 
 <!--
@@ -34,8 +47,6 @@
 
 <br>
 
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script src="js/jquery.ui.touch-punch.min.js"></script>
 <script>
 	$(".sortable").sortable({
 		update: function(e, ui) {
@@ -49,11 +60,11 @@
 		$("#result").val(result);
     $("form").submit();
   });
-
 </script>
+
 <!--
 <%= link_to 'New My map', new_my_map_path %>
 -->
-	<%= link_to "マップを表示", :map_index, data: {role: :button}  %>
+	<%= link_to "マップを表示", :map_index, data: {role: :button} %>
 	<%= link_to "マイマップの削除", @my_map, method: :delete, data: {role: :button} %>
 	<%= link_to "トップへ", :home_index, data: {role: :button} %>
