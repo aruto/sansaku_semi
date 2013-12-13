@@ -391,9 +391,9 @@ MAPRAMBLE.getLocation = function (callback) {
             directionsService = new google.maps.DirectionsService();
             MAPRAMBLE.directionsRenderer = new google.maps.DirectionsRenderer(options);
 
-            place = MAPRAMBLE.places[MAPRAMBLE.way_points[0]];
+            //place = MAPRAMBLE.places[MAPRAMBLE.way_points[0]];
             origin = new google.maps.LatLng(MAPRAMBLE.location.lat, MAPRAMBLE.location.lng);
-            for (i = 1; i < pointsNumber - 1; i = i + 1) {
+            for (i = 0; i < pointsNumber - 1; i = i + 1) {
                 place = MAPRAMBLE.places[MAPRAMBLE.way_points[i]];
                 waypoints.push({ location: new google.maps.LatLng(place.lat, place.lng)});
             }
