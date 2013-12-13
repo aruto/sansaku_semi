@@ -2,13 +2,10 @@
 
 <%= form_tag "/my_maps/#{@my_map.id}", :method => "patch" do %>
 
-<<<<<<< HEAD
-=======
 	<%= hidden_field_tag "way_point_ids", @w_s %>
 	<%= hidden_field_tag "place_ids", @p_s  %>
 
 <!--
->>>>>>> sort_save2
 	<%= hidden_field_tag "way_point_ids", "1, 2, 5" %>
 	<%= hidden_field_tag "place_ids", "2, 9, 3"  %>
 -->
@@ -23,10 +20,8 @@
 	
 	<%= submit_tag "マイマップの順路変更" , {:id => "submitsort", :data => { :role => "button"}}  %>
 
-<<<<<<< HEAD
 	<!--<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %>-->
-=======
->>>>>>> sort_save2
+
 <% end %>
 
 <!--
