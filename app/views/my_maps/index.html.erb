@@ -17,9 +17,8 @@
   		<% end %>
 		</ul>
 	<% end %>
-
-	<%= submit_tag "マイマップの順路変更" , :id => "submitsort" %>
-	<%= submit_tag "マイマップの順路変更" , :id => "submitsort", :size => "width" %>
+	
+	<%= submit_tag "マイマップの順路変更" , {:id => "submitsort", :data => { :role => "button"}}  %>
 
 <% end %>
 
@@ -41,8 +40,6 @@
 
 <br>
 
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script src="js/jquery.ui.touch-punch.min.js"></script>
 <script>
 	$(".sortable").sortable({
 		update: function(e, ui) {
@@ -56,11 +53,11 @@
 		$("#result").val(result);
     $("form").submit();
   });
-
 </script>
+
 <!--
 <%= link_to 'New My map', new_my_map_path %>
 -->
-	<%= link_to "マップを表示", :map_index, data: {role: :button}  %>
+	<%= link_to "マップを表示", :map_index, data: {role: :button} %>
 	<%= link_to "マイマップの削除", @my_map, method: :delete, data: {role: :button} %>
 	<%= link_to "トップへ", :home_index, data: {role: :button} %>
