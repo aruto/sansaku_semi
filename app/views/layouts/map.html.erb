@@ -403,8 +403,7 @@ MAPRAMBLE.getLocation = function (callback) {
                 origin: origin,
                 destination: destination,
                 waypoints: waypoints,
-                travelMode: google.maps.DirectionsTravelMode.WALKING,
-                optimizeWaypoints: true
+                travelMode: google.maps.DirectionsTravelMode.WALKING
             };
             directionsService.route(request, function (responce, status) {
                 console.log(responce);
